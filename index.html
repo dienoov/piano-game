@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Piano</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" type="module" defer></script>
+    <link rel="icon" href="favicon.png">
+</head>
+<body>
+<div id="container">
+
+    <div class="left">
+        <div class="card">
+            <figure class="title">
+                <img src="favicon.png" alt="icon">
+                <figcaption><h1>Piano</h1></figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <canvas id="game"></canvas>
+
+    <div class="right">
+        <div class="card">
+            <div class="timer">
+                <h2>Time: <span id="time-elapsed">0</span>s</h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="score">
+                <h2>Score: <span id="score-percentage">0</span>%</h2>
+            </div>
+        </div>
+    </div>
+
+    <div id="instruction" class="modal">
+        <div class="card">
+            <h2>Game Instructions</h2>
+            <ol>
+                <li>To click the keys, player can use “DFJK” keys with the following (from the left key).</li>
+                <li>The score will be increased if player click the keys when the tiles is touched the border.</li>
+                <li>Player fails if the score below 50% in the end.</li>
+                <li>Press Esc to open the pause popup. Player can change the volume by moving the range.</li>
+            </ol>
+            <form id="play-form">
+                <select id="select-song" required>
+                    <option value="">Select song</option>
+                    <option value="unforgiving">Unforgiving</option>
+                </select>
+                <button type="submit" id="play-button">Play</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="end" class="modal hide">
+        <div class="card">
+            <h2 class="result">Congratulations</h2>
+            <h3>Your Score: <span class="score"></span></h3>
+            <button class="highscore">See Highscore</button>
+            <button onclick="window.location.reload()">Restart</button>
+        </div>
+    </div>
+
+    <div id="pause" class="modal hide">
+        <div class="card">
+            <h2 class="result">Paused</h2>
+            <label>Volume</label>
+            <input type="range" min="0" max="100" id="volume-slider">
+            <button class="continue">Continue</button>
+            <button onclick="window.location.reload()" class="restart">Restart</button>
+        </div>
+    </div>
+
+    <div id="highscore" class="modal hide">
+        <div class="card">
+            <h2 class="result">Highscore</h2>
+            <div class="table"></div>
+            <button onclick="window.location.reload()" class="restart">Restart</button>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
